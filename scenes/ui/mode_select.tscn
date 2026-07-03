@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmodeselect001"]
+
+[ext_resource type="Script" path="res://scripts/mode_select.gd" id="1_mode"]
+
+[node name="ModeSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mode")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.1, 0.12, 1)
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+text = "Select Mode"
+
+[node name="Mode1v1Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 56)
+text = "1v1"
+
+[node name="AILabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "1 vs AI"
+
+[node name="AIRow" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="AIEasyButton" type="Button" parent="CenterContainer/VBoxContainer/AIRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 48)
+text = "Easy"
+
+[node name="AIMediumButton" type="Button" parent="CenterContainer/VBoxContainer/AIRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 48)
+text = "Medium"
+
+[node name="AIHardButton" type="Button" parent="CenterContainer/VBoxContainer/AIRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 48)
+text = "Hard"
+
+[node name="Mode2v2Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 56)
+disabled = true
+text = "2v2"
+
+[node name="Mode1v1v1Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 56)
+disabled = true
+text = "1v1v1"
+
+[node name="Mode1v1v1v1Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 56)
+disabled = true
+text = "1v1v1v1"
+
+[node name="BackButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(220, 56)
+text = "Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Mode1v1Button" to="." method="_on_1v1_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/AIRow/AIEasyButton" to="." method="_on_ai_easy_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/AIRow/AIMediumButton" to="." method="_on_ai_medium_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/AIRow/AIHardButton" to="." method="_on_ai_hard_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]
